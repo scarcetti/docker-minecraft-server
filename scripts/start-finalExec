@@ -282,6 +282,8 @@ else
     $JVM_XX_OPTS
     $JVM_OPTS
     $expandedDOpts
+    -XX:+UnlockDiagnosticVMOptions
+    -XX:-UseAESCTRIntrinsics
     -jar "$SERVER"
     "$@" $EXTRA_ARGS
   )

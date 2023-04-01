@@ -2,13 +2,19 @@ version: "3.8"
 
 services:
   mc:
+    restart: unless-stopped
     image: itzg/minecraft-server
     environment:
       EULA: "true"
+      TYPE: "PAPER"
+      # COPY_PLUGINS_SRC: /custom/plugins
+      # COPY_PLUGINS_DEST: /data/custom-plugins
     ports:
       - "25565:25565"
+      - "25565:25565/udp"
     volumes:
-      - data:/data
+      # - data:/data
+      - ./minecraft-data:/data
     stdin_open: true
     tty: true
     restart: unless-stopped
